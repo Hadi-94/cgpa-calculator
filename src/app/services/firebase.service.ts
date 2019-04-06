@@ -12,64 +12,63 @@ export class FirebaseService {
 private snapshotChangesSubscription: any;
 
 
-    constructor(
+  constructor(
         public afs: AngularFirestore,
         public afAuth: AngularFireAuth
-    ) { }
+  ) { }
 
-    calGPA(gradeArray,creditHourArray){
-      var averageGPA;
-      var sum = 0.0;   
-      var credSum = 0.0;    
-      
-      for(var j = 0; j <gradeArray.length; j++)
-      {
-          sum = sum + (parseFloat(gradeArray[j])*parseFloat(creditHourArray[j]));
-      }
-      
-      
-      for(var k = 0; k < creditHourArray.length; k++)
-      {
-          credSum = credSum + parseFloat(creditHourArray[k]);
-      }
-      
-  
-      averageGPA = ((sum)/(credSum)); 
-      var newAvg = averageGPA.toFixed(2);
-      console.log(sum);
-      console.log(credSum);
-      console.log(newAvg);
-      return newAvg;
-
-      
+  calGPA(gradeArray,creditHourArray){
+    var averageGPA;
+    var sum = 0.0;   
+    var credSum = 0.0;    
+    
+    for(var j = 0; j <gradeArray.length; j++)
+    {
+        sum = sum + (parseFloat(gradeArray[j])*parseFloat(creditHourArray[j]));
     }
-    showGPA(){
-      console.log("Hi")
-
+    
+    
+    for(var k = 0; k < creditHourArray.length; k++)
+    {
+        credSum = credSum + parseFloat(creditHourArray[k]);
     }
+    
+
+    averageGPA = ((sum)/(credSum)); 
+    var newAvg = averageGPA.toFixed(2);
+    console.log(sum);
+    console.log(credSum);
+    console.log(newAvg);
+    return newAvg;
+
+      
+  }
+
+  showGPA(){
+    console.log("Hi")
+
+  }
 
 
-    createSubjects(value) {
-        return new Promise<any>((resolve, reject) => {
-            let currentUser = firebase.auth().currentUser; 
-            this.afs.collection('people').doc(currentUser.uid).collection('Course').add({
-                subName: value.subName,
-                subCode: value.subCode,
-                creditHour: value.creditHour,
-                grade: value.grade
-              
-                
-            })
-                .then(
-                    res => resolve(res),
-                    err => reject(err)
-                )
-        
-        })
-        
+  createSubjects(value) {
+    return new Promise<any>((resolve, reject) => {
+      let currentUser = firebase.auth().currentUser; 
+      this.afs.collection('people').doc(currentUser.uid).collection('Course').add({
+        subName: value.subName,
+        subCode: value.subCode,
+        creditHour: value.creditHour,
+        grade: value.grade
+      })
+      
+      .then(
+          res => resolve(res),
+          err => reject(err)
+      )
+    
+    })
+  }
 
-    }
-    createGPA(gradeArray,creditHourArray) {
+  createGPA(gradeArray,creditHourArray) {
       return new Promise<any>((resolve, reject) => {
           let currentUser = firebase.auth().currentUser; 
           this.afs.collection('people').doc(currentUser.uid).collection('GPA').add({
@@ -87,12 +86,12 @@ private snapshotChangesSubscription: any;
   }
 
 
-    unsubscribeOnLogOut() {
+  unsubscribeOnLogOut() {
         //remember to unsubscribe from the snapshotChanges
       // this.snapshotChangesSubscription.unsubscribe();
-    }
+  }
 
-    getTasks(){
+  getTasks(){
         return new Promise<any>((resolve, reject) => {
           this.afAuth.user.subscribe(currentUser => {
             if(currentUser){
@@ -101,9 +100,9 @@ private snapshotChangesSubscription: any;
             }
           })
         })
-      }
+  }
     
-      getTask(taskId){
+  getTask(taskId){
         return new Promise<any>((resolve, reject) => {
           this.afAuth.user.subscribe(currentUser => {
             if(currentUser){
@@ -116,11 +115,11 @@ private snapshotChangesSubscription: any;
             }
           })
         });
-      }
+  }
 
 
 
-      getGPA(){
+  getGPA(){
         return new Promise<any>((resolve, reject) => {
           this.afAuth.user.subscribe(currentUser => {
             if(currentUser){
@@ -129,9 +128,9 @@ private snapshotChangesSubscription: any;
             }
           })
         })
-      }
+  }
     
-      getGPA2(GPAId){
+  getGPA2(GPAId){
         return new Promise<any>((resolve, reject) => {
           this.afAuth.user.subscribe(currentUser => {
             if(currentUser){
@@ -144,6 +143,6 @@ private snapshotChangesSubscription: any;
             }
           })
         });
-      }
+  }
 
 }

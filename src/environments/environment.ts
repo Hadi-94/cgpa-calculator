@@ -5,12 +5,20 @@
 export const environment = {
     production: false,
     firebase: {
-        apiKey: "AIzaSyAL7cwe_emGbrRmRgaNkcV4m_v7k6veNbw",
-        authDomain: "task-db-5b985.firebaseapp.com",
-        databaseURL: "https://task-db-5b985.firebaseio.com",
-        projectId: "task-db-5b985",
-        storageBucket: "task-db-5b985.appspot.com",
-        messagingSenderId: "797499268166"
+        // // Hussien's Firebase
+        // apiKey: "AIzaSyAL7cwe_emGbrRmRgaNkcV4m_v7k6veNbw",
+        // authDomain: "task-db-5b985.firebaseapp.com",
+        // databaseURL: "https://task-db-5b985.firebaseio.com",
+        // projectId: "task-db-5b985",
+        // storageBucket: "task-db-5b985.appspot.com",
+        // messagingSenderId: "797499268166"
+    
+        apiKey: "AIzaSyBGIGZRn4fpdmAVN8IDWjdkuKzg24ZrelI",
+        authDomain: "test1-466c0.firebaseapp.com",
+        databaseURL: "https://test1-466c0.firebaseio.com",
+        projectId: "test1-466c0",
+        storageBucket: "test1-466c0.appspot.com",
+        messagingSenderId: "533897237958"
     }
 };
 

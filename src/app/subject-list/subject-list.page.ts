@@ -46,11 +46,36 @@ export class SubjectListPage implements OnInit {
        })
      }
    
-     async presentLoading(loading) {
+    async presentLoading(loading) {
        return await loading.present();
-     }
+    }
 
-     
+    
+    
+    // async calGPA(gradeArray,creditHourArray){
+    //     var averageGPA;
+    //     var sum = 0.0;   
+    //     var credSum = 0.0;    
+        
+    //     for(var j = 0; j <gradeArray.length; j++)
+    //     {
+    //       sum = sum + (parseFloat(gradeArray[j])*parseFloat(creditHourArray[j]));
+    //     }
+        
+        
+    //     for(var k = 0; k < creditHourArray.length; k++)
+    //     {
+    //         credSum = credSum + parseFloat(creditHourArray[k]);
+    //     }
+        
+
+    //     averageGPA = ((sum)/(credSum)); 
+    //     var newAvg = averageGPA.toFixed(2);
+    //     console.log(sum);
+    //     console.log(credSum);
+    //     console.log(newAvg);
+    //     return newAvg;
+    // }
 
 
        
